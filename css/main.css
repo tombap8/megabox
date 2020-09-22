@@ -1,0 +1,387 @@
+@charset "utf-8";
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    /*높이값 보이는 화면기준*/
+    overflow: hidden;
+}
+
+/*드래그 영역선택 안되게하는 css*/
+.disableselect {
+    -webkit-touch-callout: none;
+    /* iOS Safari */
+    -webkit-user-select: none;
+    /* Chrome/Safari/Opera */
+    -khtml-user-select: none;
+    /* Konqueror */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge*/
+    user-select: none;
+    /* Non-prefixed version, currently 
+   not supported by any browser */
+}
+
+.disabledrag {
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    user-drag: none;
+}
+
+/*전체 페이지부모(스크롤박스역할)*/
+.wrap {
+    width: 100%;
+    height: 100%;
+    /*높이값 보이는 화면기준*/
+    /*
+            overflow-x: hidden;
+            overflow-y: scroll;
+*/
+}
+
+/*공통셋팅*/
+a {
+    text-decoration: none;
+    color: #fff;
+    text-shadow: 0 0 2px #777;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+ul::after {
+    content: "";
+    display: block;
+    clear: both;
+    /*float해제*/
+}
+
+li {
+    float: left;
+    /*옆으로 흐르게*/
+}
+
+img {
+    border: none;
+    /*이미지 링크시 테두리없앰*/
+}
+
+h1,
+h2,
+h3 {
+    margin: 0;
+    padding: 0;
+    font-size: 100%;
+    /*16px기준*/
+}
+
+
+/*공통 class*/
+.page {
+    position: relative;
+    /*부모자격*/
+    width: 100%;
+    height: 100%;
+}
+
+/*IR 업데이트*/
+.bld {
+    display: block;
+    overflow: hidden;
+    width: 0;
+    height: 0;
+}
+
+/*상단영역*/
+.top {
+    position: fixed;
+    /*상단고정*/
+    width: 100%;
+    z-index: 9999;
+    /*맨위로!*/
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.inbox {
+    position: relative;
+    /*부모자격*/
+    width: 1920px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+#top {
+    height: 80px;
+}
+
+/*로고*/
+#logo {
+    width: 250px;
+    height: 100%;
+    text-align: center;
+    overflow: hidden;
+    /*넘치는자식숨김*/
+}
+
+#logo img {
+    width: 100%;
+    margin-top: -24px;
+}
+
+/*GNB메뉴*/
+.gnb {
+    position: absolute;
+    /*부모? #top*/
+    top: 40px;
+    right: 2%;
+}
+
+.gnb li {
+    margin: 0 7px;
+}
+
+/*메뉴에 마우스 오버시*/
+.gnb a:hover {
+    color: lime;
+    text-decoration: overline;
+}
+
+.gnb li:hover {
+    transform: scale(1.1);
+}
+
+/*선택된 메뉴 class*/
+.gnb li.on a {
+    color: lime;
+    text-decoration: overline;
+}
+
+.gnb li.on {
+    transform: scale(1.1);
+}
+
+
+/*개별페이지셋팅*/
+#pg1 {
+    background: #000 url(../images/cover.jpg) no-repeat center/130%;
+    /*배경가로크기를 130%로 해서 스크린크기를 비율적으로 셋팅함!-스크린박스와 일치하기위함*/
+}
+
+#pg2 {
+    background: url(../images/cover2.jpg) no-repeat top/cover;
+}
+
+#pg3 {
+    background: url(../images/cover3.jpg) no-repeat top/cover;
+}
+
+#pg4 {
+    background: url(../images/cover4.jpg) no-repeat top/cover;
+}
+
+/*블릿 네비게이션*/
+.bnav {
+    position: fixed;
+    right: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+    /*세로중앙이동*/
+    width: 15px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.bnav li {
+    position: relative;
+    /*부모자격(span)*/
+    width: 100%;
+    height: 15px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    margin: 6px 0;
+}
+
+/*선택네비 class*/
+.bnav li.on {
+    background-color: #EC686A;
+    transform: scale(1.15);
+}
+
+/*블릿a링크*/
+.bnav a {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+/*블릿글자*/
+.bnav span {
+    position: absolute;
+    top: -50%;
+    right: 200%;
+    white-space: nowrap;
+    font: bold .9rem "맑은 고딕", Verdana;
+    text-shadow: 1px 0 #000, -1px 0 #000,
+        0 1px #000, 0 -1px #000;
+    display: none;
+    /*글자숨기기*/
+}
+
+/*마우스 오버시 글자보이기*/
+.bnav li:hover span {
+    display: block;
+}
+
+/*선택메뉴 글자보이기*/
+.bnav li.on span {
+    display: block;
+}
+
+/********1. 영화페이지 *******************/
+
+/*스크린박스*/
+#screen{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 32%;
+    background-color: #000;
+}
+/*스크린비율유지*/
+#screen::before{
+    content: "";
+    display: block;
+    padding-top: 54%;
+    /*가상요소로 패딩탑을 주면 가로크기에 대한 정확한 비율이 나옴!*/
+}
+
+/*동영상*/
+#mv{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    display: none;/*안보임*/
+}
+
+
+
+/*비율유지박스 class*/
+.rbox::before {
+    content: "";
+    display: block;
+    padding-top: 100%;
+    /*1:1비율*/
+}
+
+/*갤리러박스*/
+.gbox {
+    position: relative;
+    /*부모자격*/
+    top: 50%;/*추가*/
+    transform: translateY(-50%);/*추가*/
+    
+    width: 20%;
+    /*            height: 300px;*/
+    margin: 0 auto;
+    /*outline: 5px solid lime;*/
+    /*display: none;*/
+}
+
+.gbox img {
+    position: absolute;
+    /*이미지 위치이동(박스기준)*/
+    width: 100%;
+    box-shadow: 6px 6px 5px #333;
+    border-radius: 15px;
+    transition: all .4s ease-in-out;
+    /*트랜지션*/
+}
+
+/*이미지개별설정*/
+
+/*왼쪽이미지2*/
+.gbox img:nth-child(1) {
+    top: -40%;
+    left: -210%;
+    transform: scale(.7);
+    opacity: 0;
+}
+
+/*왼쪽이미지1*/
+.gbox img:nth-child(2) {
+    top: -20%;
+    left: -110%;
+    transform: scale(.9);
+    /*filter: blur(1px) grayscale(50%);*/
+    cursor: pointer;
+}
+
+/*중앙이미지*/
+.gbox img:nth-child(3) {
+    top: 0;
+    left: 0;
+    cursor: pointer;
+}
+
+/*오른쪽이미지1*/
+.gbox img:nth-child(4) {
+    top: -20%;
+    left: 110%;
+    transform: scale(.9);
+    /*filter: blur(1px) grayscale(50%);*/
+    cursor: pointer;
+}
+
+/*오른쪽이미지2*/
+.gbox img:nth-child(5) {
+    top: -40%;
+    left: 210%;
+    transform: scale(.7);
+    opacity: 0;
+}
+
+/*이동버튼 셋팅*/
+.abtn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    /*세로중앙이동*/
+    width: 4%;
+}
+
+.abtn img {
+    width: 100%;
+}
+
+.lb {
+    /*왼쪽버튼*/
+    left: 10%;
+}
+
+.rb {
+    /*오른쪽버튼*/
+    right: 10%;
+}
+
+
+
+
+
+/********2.큐레이션 페이지 : typed 플러그인 디자인 ******/
+
+/********3페이지 - 영화관(swiper 플러그인)*************/
+
+/********4.특별관 페이지 - photobox 플러그인 디자인************/

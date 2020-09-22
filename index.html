@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Megabox PJ</title>
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/jquery-3.5.0.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/autoScroll.js"></script>
+    <script src="js/main.js"></script>
+
+</head>
+
+<body>
+    <!--상단영역-->
+    <div class="top">
+        <header class="inbox" id="top">
+            <!--로고-->
+            <h1 id="logo">
+                <a href="#">
+                    <img src="images/logo.png" alt="메가박스로고">
+                </a>
+            </h1>
+            <!--GNB메뉴-->
+            <nav class="gnb">
+                <ul>
+                    <li class="on">
+                        <a href="#pg1">영화</a>
+                    </li>
+                    <li>
+                        <a href="#pg2">큐레이션</a>
+                    </li>
+                    <li>
+                        <a href="#pg3">영화관</a>
+                    </li>
+                    <li>
+                        <a href="#pg4">특별관</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+    </div>
+    <!--페이지 섹션-->
+    <div class="wrap">
+
+        <!--1.영화 페이지-->
+        <section id="pg1" class="page">
+
+            <!--스크린박스-->
+            <div id="screen">
+                <!--동영상-->
+                <video id="mv" src="mv/mv1.mp4"></video>
+            </div>
+
+
+            <!--갤러리이미지박스-->
+            <div class="gbox rbox">
+                <img src="images/cast01.jpg" alt="분노의 질주" data-mv="mv1">
+                <img src="images/cast02.jpg" alt="엑시트" data-mv="mv2">
+                <img src="images/cast03.jpg" alt="봉오동 전투" data-mv="mv3">
+                <img src="images/cast04.jpg" alt="광대들" data-mv="mv4">
+                <img src="images/cast05.jpg" alt="변신" data-mv="mv5">
+            </div>
+            <!--이동버튼-->
+            <a href="#" class="abtn lb">
+                <img src="images/left_btn.png" alt="왼쪽버튼">
+            </a>
+            <a href="#" class="abtn rb">
+                <img src="images/right_btn.png" alt="오른쪽버튼">
+            </a>
+
+
+
+        </section>
+
+        <!--2.큐레이션 페이지-->
+        <section id="pg2" class="page"></section>
+        <!--3.영화관 페이지(swipe플러그인)-->
+        <section id="pg3" class="page"></section>
+        <!--4.특별관 페이지-->
+        <section id="pg4" class="page"></section>
+    </div>
+
+
+    <!--블릿네비게이션-->
+    <ol class="bnav">
+        <li class="on">
+            <a href="#pg1"><span>영화</span></a>
+        </li>
+        <li>
+            <a href="#pg2"><span>큐레이션</span></a>
+        </li>
+        <li>
+            <a href="#pg3"><span>영화관</span></a>
+        </li>
+        <li>
+            <a href="#pg4"><span>특별관</span></a>
+        </li>
+    </ol>
+
+
+
+
+
+
+
+</body></html>
