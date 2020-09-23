@@ -68,6 +68,66 @@ $(function () { /////// jQB ///////////////////////
         // 이동버튼이 내려간 상태에서 중앙 포스터 동영상 재생하기에 쓰려고 셋팅함
 
     }); ////////// click ///////////////
+    
+    /// 2. 동영상 제어버튼 오버/아웃시  이미지변경하기 ////
+    // 이벤트 대상: .btngrp img
+    // 변경원리: 기존버튼의 src를 읽어와서
+    //          파일명의 ".png"를 "-1.png"로 변경함(진한이미지)
+    // hover() 사용
+    $(".btngrp img").hover(
+        function(){// over
+            // 현재 이미지 경로
+            var csrc = $(this).attr("src")
+            // 경로변경하기
+            .replace(".png","-1.png");
+            //console.log("경로:"+csrc);
+            // 이미지변경
+            $(this).attr("src",csrc);
+        },
+        function(){// out
+            // 현재 이미지 경로
+            var csrc = $(this).attr("src")
+            // 경로변경하기
+            .replace("-1.png",".png");
+            //console.log("경로:"+csrc);
+            // 이미지변경
+            $(this).attr("src",csrc);
+        });////// hover ////////////////////
+    
+    
+    //////////// 비디오변수 ///////
+    var mvid = $("#mv").get(0);
+    //////////////////////////////
+    
+    /// 3. play/stop버튼 클릭시 비디오 컨트롤하기 ////////
+    /// 이벤트 대상: .btngrp img
+    /// 구현원리 : 재생상태이면 멈추고 멈춤상태이면 재생한다.
+    $(".btngrp img").click(function(){
+        // 구현포인트: 비디오가 재생상태인지 멈춤상태인지 알아내기!
+        var paused_sts = mvid.paused;
+        // paused 속성은 현재 비디오가 멈춤상태이면 true값을 리턴함
+        console.log("현재멈춤상태인가?"+paused_sts);
+        
+        if(paused_sts){ // 동영상이 멈췄니? true(응)
+            // 비디오 재생하기 - play() 메서드 : 비디오 재생하기
+            mvid.play();
+            
+            // 버튼은 반대로 진한이미지로 전환!(멈춤)
+            $(this).attr("src","images/vbt1-1.png");
+            
+        } /////  if ////////////////////
+        else{ // 동영상이 멈췄니? false(아니)
+            // 비디오 멈추기 - pause() 메서드 : 비디오 멈추기
+            mvid.pause();
+            
+            // 버튼은 반대로 진한이미지로 전환!(재생)
+            $(this).attr("src","images/vbt2-1.png");
+            
+        } ///// else ///////////////////
+        
+    });///////// click ///////////////////////
+    
+    
 
 
 

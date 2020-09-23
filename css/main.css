@@ -276,6 +276,22 @@ h3 {
     display: none;/*안보임*/
 }
 
+/*play,stop버튼*/
+.btngrp{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 20%;
+}
+.btngrp img{
+    width: 100%;
+}
+
+
+
+
+
 
 
 /*비율유지박스 class*/
